@@ -211,8 +211,7 @@ show_qr = true
 #
 # host = "YOUR_SERVER"
 #
-# TODO: Your GoatCounter username
-user = ""
+user = "suyanxu"
 
 [extra.debug]
 # Display outlines around all elements for debugging purposes

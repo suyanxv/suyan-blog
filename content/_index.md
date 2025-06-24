@@ -20,7 +20,7 @@ This is my personal blog, hosted on [suyan.dev](https://suyan.dev). I'm using it
 
 ## ♣ About Me
 
-Hi, I’m **Suyan Xu (徐苏燕)** — a software engineer based in Seattle with 3 years of experience at Amazon. I’m currently an SDE 2, where I’ve built large-scale infrastructure for identity management and e-commerce checkout systems. I hold a Master of Science in Mobile and IoT Engineering (MSMITE) from Carnegie Mellon University and a Bachelor of Science in Computing from Hong Kong Polytechnic University.
+Hi, I’m **Suyan Xu (徐苏燕)** — a software engineer based in Seattle with 3 years of experience at Amazon. I’m currently an SDE 2, where I’ve built large-scale infrastructure for identity management and e-commerce checkout systems. I hold a Master of Science in Mobile and IoT Engineering (MSMITE) from **Carnegie Mellon University** and a Bachelor of Science in Computing from Hong Kong Polytechnic University.
 
 I’m natively fluent in both English and Chinese, and I enjoy learning French 🇫🇷. Outside of work, I love salsa dancing, baking desserts, scuba diving, and exploring the Pacific Northwest.
 
