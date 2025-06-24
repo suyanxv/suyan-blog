@@ -20,7 +20,7 @@ This is my personal blog, hosted on [suyan.dev](https://suyan.dev). I'm using it
 
 ## ♣ About Me
 
-Hi, I’m **Suyan Xu (徐苏燕)** — a software engineer based in Seattle with 3 years of experience at Amazon. I’m currently an SDE 2, where I’ve built large-scale infrastructure for identity management and e-commerce checkout systems. I hold a Master of Science in Mobile and IoT Engineering (MSMITE) from **Carnegie Mellon University** and a Bachelor of Science in Computing from Hong Kong Polytechnic University.
+Hi, I’m **Suyan Xu (徐苏燕)** — a software engineer based in Seattle. I’m currently an SDE 2 at **Amazon**, where I’ve helped build large-scale infrastructure for identity management systems and the global Checkout platform—a core part of the shopping experience, used by millions of customers around the world every day. I hold a Master’s degree in Mobile and IoT Engineering from **Carnegie Mellon University** and a Bachelor’s degree in Computing from **The Hong Kong Polytechnic University**.
 
 I’m natively fluent in both English and Chinese, and I enjoy learning French 🇫🇷. Outside of work, I love salsa dancing, baking desserts, scuba diving, and exploring the Pacific Northwest.
 
@@ -32,7 +32,7 @@ I'm also passionate about designing emotionally mindful apps that minimize digit
 
 ## ♦ Project Vision
 
-I want to explore and showcase the blend of modern web development, Rust backends, and AI tooling—all under a minimalist and emotionally safe interface.
+I’m exploring how modern web development, Rust-powered backends, and AI tools can come together in a minimalist and emotionally thoughtful interface.
 
 Eventually, I’d like to:
 
@@ -44,7 +44,7 @@ Eventually, I’d like to:
 
 ## ♥ Goals
 
-- Document my **career change** journey from Amazon to quant finance/fintech.
+- Share my evolving curiosity at the intersection of tech and finance—including explorations in quant and fintech spaces.
 - Ship real-world, small apps that I use and improve.
 - Design a portfolio that reflects my interests, values, and identity.
 
@@ -52,7 +52,7 @@ Eventually, I’d like to:
 
 ## ♠ Motivation
 
-I want to share what I build, think, and feel—without the noise and pressure of social media. This blog is my digital home base.
+This blog is my corner of the internet to share what I build, think, and learn—away from the noise and pressure of social media.
 
 If you’re curious or inspired, feel free to explore or drop a note via the social media links below.
 
