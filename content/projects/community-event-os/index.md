@@ -10,7 +10,7 @@ copy = false
 comment = false
 +++
 
-**Version:** 1.0 · **Status:** Draft
+**Version:** 1.0 · **Status:** Draft · **MVP:** [cmu-community-os-pink.vercel.app](https://cmu-community-os-pink.vercel.app)
 
 ---
 
