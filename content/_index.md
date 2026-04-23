@@ -12,6 +12,7 @@ avatar = "img/avatar.png"
 links = [
     { name = "GitHub", icon = "github", url = "https://github.com/suyanxv" },
     { name = "Instagram", icon = "instagram", url = "https://www.instagram.com/suyanxv" },
+    { name = "LinkedIn", icon = "linkedin", url = "https://www.linkedin.com/in/suyanxu/" },
 ]
 
 recent = false
