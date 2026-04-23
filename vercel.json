@@ -1,11 +1,6 @@
 {
   "framework": null,
-  "buildCommand": "zola build",
+  "buildCommand": "bash build.sh",
   "outputDirectory": "public",
-  "installCommand": "",
-  "build": {
-    "env": {
-      "ZOLA_VERSION": "0.22.1"
-    }
-  }
+  "installCommand": ""
 }
