@@ -8,7 +8,7 @@ footer = true
 name = "Suyan Xu"
 id = "suyanxv"
 bio = "software engineer in Seattle. building things."
-avatar = "img/avatar.webp"
+avatar = "img/avatar.png"
 links = [
     { name = "GitHub", icon = "github", url = "https://github.com/suyanxv" },
     { name = "Instagram", icon = "instagram", url = "https://www.instagram.com/suyanxv" },
