@@ -22,20 +22,6 @@ The initial use case is the CMU Seattle Alumni Network, but the architecture sup
 
 ---
 
-## Screenshots
-
-{{ figure(src="/img/quorum/year-view.png", alt="Year calendar view", caption="Year view — 12 months at a glance, color-coded by category (internal · partnered · external · cancelled)") }}
-
-{{ figure(src="/img/quorum/events-list.png", alt="Events list", caption="Events list — category stripe, hosts, and channels surfaced on each card") }}
-
-{{ figure(src="/img/quorum/event-detail.png", alt="Event detail page", caption="Event detail — stats, check-in, broadcasts (email + WhatsApp), partners") }}
-
-{{ figure(src="/img/quorum/content-generation.png", alt="AI content generation", caption="AI content generation — 5 channels from one event context, prompt-cached") }}
-
-{{ figure(src="/img/quorum/public-share.png", alt="Public shareable calendar", caption="Public share URL — board members view upcoming events without a login") }}
-
----
-
 ## How It Works
 
 1. **Fill out one event form** — core fields plus any custom fields your org uses. Form template is AI-parsed from your existing Google / Monday / Luma form URL.
@@ -141,3 +127,17 @@ Installable on iOS and Android with a fullscreen experience and dynamically gene
 - Event templates (save-as-template for reuse)
 - Analytics dashboard (attendance trends, channel engagement)
 - Dark mode
+
+---
+
+## Screenshots
+
+{{ figure(src="/img/quorum/year-view.png", alt="Year calendar view", caption="Year view — 12 months at a glance, color-coded by category (internal · partnered · external · cancelled)") }}
+
+{{ figure(src="/img/quorum/events-list.png", alt="Events list", caption="Events list — category stripe, hosts, and channels surfaced on each card") }}
+
+{{ figure(src="/img/quorum/event-detail.png", alt="Event detail page", caption="Event detail — stats, check-in, broadcasts (email + WhatsApp), partners") }}
+
+{{ figure(src="/img/quorum/content-generation.png", alt="AI content generation", caption="AI content — 5 channels from one event context, prompt-cached") }}
+
+{{ figure(src="/img/quorum/public-share.png", alt="Public shareable calendar", caption="Public share URL — board members view upcoming events without a login") }}
