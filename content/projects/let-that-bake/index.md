@@ -1,6 +1,6 @@
 +++
 title = "Let That Bake"
-description = "AI-powered home bakery operations assistant — production planning, calendar-aware scheduling, and customer order intake for solo bakers."
+description = "AI-powered baking planner for hobbyists, gift bakers, side hustlers, and home bakeries. Production scheduling, calendar-aware timing, and AI step-by-step guidance."
 date = 2026-04-26
 
 [extra]
@@ -16,9 +16,18 @@ comment = false
 
 ## Overview
 
-Let That Bake is a production-planning OS for home bakers. Drop in an order with a due date and the agent works backwards through the bake / chill / decorate timeline, fits each step around your real calendar, and gives you a day-by-day plan. There's a public order form so customers can submit requests directly, AI tips per step (with passive reminders for chilling and freezing), and YouTube tutorials embedded inline for visual techniques like crumb coating or piping.
+Let That Bake is an AI-powered baking planner for anyone juggling more than one bake at a time. Whether it's a side-hustle order, your sister's birthday cake, or a tray of cookies for a school bake sale, drop in what you're making and when it's due. The agent works backwards through the bake, chill, and decorate timeline, fits each step around your real calendar, and gives you a day-by-day plan.
 
-The first user is me. The category is small enough to be ignored by VC-scale software but large enough to support a real indie business — there are millions of cottage food businesses in the US and they're underserved by tools built for commercial kitchens.
+There's also a public order form so customers (or friends) can submit requests directly, AI tips per step with passive reminders for chilling and freezing, and YouTube tutorials embedded inline for visual techniques like crumb coating or piping.
+
+**Who it's for:**
+
+- 🎨 **Hobby bakers** — anyone who bakes for the love of it and wants the timing handled
+- 🎁 **Gift bakers** — birthday cakes, holiday cookies, hostess gifts
+- 💼 **Side hustlers** — taking custom orders on the side of a day job
+- 🏪 **Home bakeries** — running a real cottage food business
+
+The first user is me. I bake because I enjoy it and because people in my life like it when I do. The pain point — losing track of what to start when — is the same whether you're charging for it or not.
 
 It's also the first product spinout from my [Let That Bake YouTube channel](https://letthatbake.ai), which is where the brand and audience live.
 
@@ -118,16 +127,19 @@ It's also the first product spinout from my [Let That Bake YouTube channel](http
 
 ## Where It Sits in the Market
 
-The home bakery software space is established but stale. The existing tools split cleanly:
+The existing baking software space splits cleanly — and skips the biggest segment entirely:
 
-- **BakeMargin / Bake Boost** — recipe costing and pricing focus
-- **CakeBoss** — desktop-only, dated, cheap long-term
+- **BakeMargin / Bake Boost** — recipe costing and pricing focus, paid bakers only
+- **CakeBoss** — desktop-only, dated, paid bakers only
 - **BakeSmart** — overbuilt for retail, $99–240/month
-- **Spreadsheets** — what most home bakers actually use
+- **Recipe apps (Paprika, Plan to Eat)** — what to cook tonight, not how to time multi-day projects
+- **Spreadsheets** — what most people actually use, regardless of why they're baking
 
-None of them answer the question that bakers are actually asking when they look at their order list on Wednesday morning: *"What do I need to do today to ship everything on time?"* That's the lane Let That Bake fills, and it's the part that genuinely benefits from agentic AI rather than just a CRUD app with an LLM bolted on.
+None of them answer the question both pros and hobbyists are asking when they look at their queue on Wednesday morning: *"What do I need to start today?"* That's the lane Let That Bake fills.
 
-The roadmap moves toward a true all-in-one (recipe costing, ingredient tracking, customer CRM, repeat order reminders) so a serious home baker can run their entire business in one tool.
+The hobby segment matters more than the existing tools admit. A hobby baker juggling Mom's birthday cake on Saturday, cookies for the school bake sale on Sunday, and a friend's housewarming on Monday has the exact same multi-project scheduling problem as a side hustler with three customer orders that week. The category-defining insight is that *baking is project planning* — and that's true for anyone with more than one bake on the calendar.
+
+Pro features (recipe costing, customer confirmations, public order forms with custom branding) sit behind a $9.99/mo paywall because they're meaningful only to people running it as a business. The free tier handles the planning loop in full so casual bakers get real value without a subscription.
 
 ---
 
