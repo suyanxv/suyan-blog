@@ -2,6 +2,7 @@
 title = "Let That Bake"
 description = "AI-powered baking planner for hobbyists, gift bakers, side hustlers, and home bakeries. Production scheduling, calendar-aware timing, and AI step-by-step guidance."
 date = 2026-04-26
+updated = 2026-07-13
 
 [extra]
 lang = "en"
@@ -35,12 +36,14 @@ It's also the first product spinout from my [Let That Bake YouTube channel](http
 
 ## How It Works
 
-1. **Capture an order** — customer + item + quantity + due date. Optionally link a saved recipe.
+1. **Capture an order** — customer + item + quantity + due date. Menu items can be backed by a saved recipe so the plan comes pre-tuned.
 2. **Generate a production plan** — backwards-scheduling engine takes the due date, the recipe's timeline (or a default per category), and the baker's blocked days, then assigns each step to the nearest available date.
 3. **Work the plan** — animated cupcake mascot rides the progress bar; tap a task to see Claude-generated "How to nail this step" tips, passive reminders ("freeze layers 30min before icing"), and embedded YouTube tutorials for visual techniques.
 4. **Reschedule on the fly** — drag tasks between days on the calendar (works on mobile via touch sensors); the order's task graph stays intact.
-5. **Confirm with the customer** — Claude drafts a warm message; copy and send via WhatsApp or email.
-6. **Take public orders** — share `/order/your-slug` so customers submit orders without an account; submissions land as `pending` for you to review.
+5. **Save what you learned** — tweak the AI-drafted steps on a real order, hit "save as default," and those edits become the recipe's timeline. The next order of that item bakes from your tuned steps, not the generic template.
+6. **Run the order lifecycle** — accept, decline, or request more info; request a deposit and mark it paid; Claude drafts a warm confirmation to copy into WhatsApp or email, or the app emails the customer directly.
+7. **Take public orders** — share `/order/your-slug` so customers submit orders without an account, browse your menu and gallery, and attach inspo photos; submissions land as `pending` for you to review.
+8. **Let customers self-serve status** — every order gets a private tracker link (`/track/...`) where the customer sees progress, payment status, and the pickup address once it's ready — no account, no back-and-forth texts.
 
 ---
 
@@ -50,6 +53,7 @@ It's also the first product spinout from my [Let That Bake YouTube channel](http
 
 - Default timelines per category (layer cake, cupcakes, cookies, cheesecake, macarons, brownies)
 - AI recipe parsing — paste a URL or text and Claude extracts a structured timeline with daysBeforeDue + duration per step
+- **Recipe learning loop** — link a recipe to a menu item and its orders inherit that timeline; edit the steps on any real order and save them back as the item's new default, so the tool gets smarter every time you bake it
 - Conflict-aware scheduler unions manual blocked days with synced calendar events
 - Editable per-task scheduled date and duration
 
@@ -80,6 +84,29 @@ It's also the first product spinout from my [Let That Bake YouTube channel](http
 - Toggle "accepting orders" on/off to pause submissions
 - Submissions trigger the scheduler immediately so the baker sees a draft plan when they review
 
+### Order Lifecycle & Payments
+
+- Accept, decline, or request more info on any incoming order, with a status that flows through to the customer's tracker
+- Request a deposit, mark it paid, then mark the balance paid in full — or flag an order as a gift with no payment
+- Accept emails are deposit-aware ("baking starts once we receive your deposit")
+- Private pickup address stays hidden until the order is marked ready
+- Customer-facing tracker (`/track/<token>`) shows live progress, payment status, and pickup details without an account
+
+### Menu & Gallery
+
+- Public gallery grouped into sections (Cakes, Cookies & Bars, Pastries) with an "About" blurb
+- Menu items with prices, an "Order this" prefill button, and in-stock vs made-to-order handling with quantity
+- Multi-photo items — carousel with a card-stack cover so one item can show several angles
+- Direct photo uploads to the gallery, plus private inspo/reference photos that never go public
+
+### Ways to See Your Work
+
+- **Kanban board** — orders as cards across pending → in progress → ready → done
+- **Finance page** — receipts, budget vs earnings, and billing in one place
+- **iCal export** — subscribe to your bakes in Google, Apple, or Outlook Calendar
+- **Themes** — light and dark plus forest, ocean, grape, and zen palettes on a semantic token system
+- **Guided setup wizard** — re-runnable and prefilled, so onboarding and later edits use the same flow
+
 ### Cute Details
 
 - Cursive Caveat logo across all branded surfaces
@@ -101,9 +128,11 @@ It's also the first product spinout from my [Let That Bake YouTube channel](http
 | Drag & drop | @dnd-kit (PointerSensor + TouchSensor) |
 | Auth | Clerk |
 | Database | Neon Postgres + Drizzle ORM |
-| AI | Anthropic Claude (Opus 4.5) — recipe parsing, task tips, video query generation, customer confirmations |
+| AI | Anthropic Claude — recipe parsing, task tips, video query generation, customer confirmations |
 | Calendar | node-ical for Google / Apple / Outlook iCal subscriptions |
 | Video | YouTube Data API v3 |
+| Email | Resend — order confirmations and status updates |
+| Photos | Vercel Blob — gallery and inspo uploads |
 | Hosting | Vercel |
 | Fonts | Geist (UI) + Caveat (cursive logo) |
 
@@ -119,7 +148,9 @@ It's also the first product spinout from my [Let That Bake YouTube channel](http
 
 **AI cost guardrails** — every Claude call is cached per task in client state, so a baker who returns to the same task during a baking session pays the LLM cost once. Recipe parsing is one-shot at import time and stored in the database. Video search uses a quota-cheap analysis call (which decides whether video is needed) before spending a more expensive YouTube search call.
 
-**Multi-baker isolation** — every table is scoped by `baker_id`, which is keyed by Clerk user ID. The public order endpoint is the only unauthenticated route and it looks up the baker by `public_slug`.
+**The recipe learning loop** is the piece I'm happiest with. The scheduler already took an optional `customTimeline`, so wiring recipes to orders was mostly plumbing — but the write-back is what makes it feel alive. When a baker saves an edited order's steps, the app diffs each task's scheduled date against the due date to recover a relative `daysBeforeDue`, rebuilds the dependency chain, drops the per-order handoff task, and writes the result back to the item's recipe (creating and linking one if the item had none). The AI drafts the first version; one real bake tunes it; the item remembers. No model retraining, just a tight edit-and-persist loop over structured data.
+
+**Multi-baker isolation** — every table is scoped by `baker_id`, which is keyed by Clerk user ID. The public order and tracker endpoints are the only unauthenticated routes; order lookup is by `public_slug`, and the tracker gates on an opaque per-order token with rate-limited verification.
 
 **Build notes** — node-ical uses `BigInt` at module evaluation time which broke Vercel's Turbopack build collection. Fixed by lazy-importing it inside the request handler.
 
@@ -151,8 +182,9 @@ Pro features (recipe costing, customer confirmations, public order forms with cu
 - Two-way Google Calendar sync (currently read-only)
 - Multi-baker households (one account, multiple bakers)
 - Print-friendly production sheets
-- Email order confirmations directly from the app
-- Stripe payments on the public order form
+- Online deposit/balance collection on the public order form (payment tracking is manual today)
+
+**Shipped since first writing:** email order confirmations and status updates, the recipe learning loop, order lifecycle with deposits, a customer-facing order tracker, public menu + gallery, in-stock items, a kanban board, and a finance page.
 
 ---
 
